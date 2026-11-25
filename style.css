@@ -1,0 +1,218 @@
+:root {
+ --granate: #6b1f2b;
+ --granate-oscuro: #55161f;
+  --crema: #f6e9e2;
+  --crema-tarjeta: #efdcd2;
+  --borde: #dcc3b8;
+  --melocoton: #e9c7ac;
+  --texto: #2b1a1c;
+  --texto-suave: #6e5558;
+  --acierto: #2e7d4f;
+  --error: #8a2432;
+  --blanco: #fffaf7;
+   --fuente-titulos: "Libre Baskerville", Georgia, serif;
+  --fuente-texto: "Inter", Arial, sans-serif;
+   --radio: 12px;
+  --sombra: 0 2px 8px rgba(107, 31, 43, 0.12);
+}
+
+*{
+     box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--fuente-texto);
+  background-color: var(--crema);
+  color: var(--texto);
+  line-height: 1.6;
+}
+.cabecera {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background-color: var(--granate);
+  color: var(--crema);
+}
+.cabecera__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--crema);
+  text-decoration: none;
+  font-family: var(--fuente-titulos);
+  font-size: 1rem;
+  line-height: 1.2;
+}
+.cabecera__nav {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--granate-oscuro);
+}
+
+.cabecera__nav.abierto {
+  display: block;
+}
+
+.cabecera__nav ul {
+  list-style: none;
+}
+
+.cabecera__nav a {
+  display: block;
+  padding: 14px 16px;
+  color: var(--crema);
+  text-decoration: none;
+  border-top: 1px solid rgba(246, 233, 226, 0.15);
+}
+
+.cabecera__nav a:hover,
+.cabecera__nav a[aria-current="page"] {
+  background-color: var(--granate);
+}
+.cabecera__hamburguesa {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.cabecera__hamburguesa span {
+  display: block;
+  width: 24px;
+  height: 2.5px;
+  background-color: var(--crema);
+  border-radius: 2px;
+}
+@media (min-width: 900px) {
+  .cabecera {
+    padding: 10px 32px;
+  }
+
+  .cabecera__nav {
+    display: block;
+    position: static;
+    background: none;
+  }
+
+  .cabecera__nav ul {
+    display: flex;
+    gap: 28px;
+  }
+
+  .cabecera__nav a {
+    padding: 6px 2px;
+    border-top: none;
+  }
+
+  .cabecera__nav a:hover,
+  .cabecera__nav a[aria-current="page"] {
+    background: none;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+  }
+
+  .cabecera__hamburguesa {
+    display: none;
+  }
+}
+/* =========================================
+   7. UTILIDADES Y DISPOSICIÓN DE PÁGINA
+   ========================================= */
+.contenedor {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+/* Oculto a la vista, pero lo leen los lectores de pantalla */
+.solo-lectores {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.boton--ancho {
+  width: 100%;
+}
+
+.estado {
+  margin-top: 12px;
+  color: var(--acierto);
+  font-weight: 600;
+}
+
+/* Tarjeta que es un enlace completo */
+.tarjeta--enlace {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--texto);
+  text-decoration: none;
+}
+
+.tarjeta--enlace:hover {
+  background-color: var(--melocoton);
+}
+
+.tarjeta__icono {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--granate);
+  color: var(--blanco);
+  font-family: var(--fuente-titulos);
+  font-size: 1.5rem;
+}
+
+/* =========================================
+   8. PÁGINA DE CONTACTO
+   ========================================= */
+.contacto {
+  display: grid;
+  gap: 24px;
+}
+
+.contacto__info h1 {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+}
+
+.contacto__correo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  color: var(--granate);
+}
+
+@media (min-width: 900px) {
+  .contacto {
+    grid-template-columns: 1fr 1.4fr 1fr;
+    align-items: start;
+  }
+
+  .fila {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 12px;
+  }
+}
+
